@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Groaner - Your Daily Dad Joke</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 40px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            margin-bottom: 24px;
+        }
+
+        .app-icon {
+            font-size: 80px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 800;
+            color: #667eea;
+            margin-bottom: 8px;
+        }
+
+        .hero .tagline {
+            font-size: 20px;
+            color: #764ba2;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .hero .description {
+            font-size: 16px;
+            color: #666;
+            max-width: 500px;
+            margin: 0 auto 32px;
+        }
+
+        /* App Store Button */
+        .app-store-btn {
+            display: inline-block;
+            background: #000;
+            color: white;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: transform 0.2s, background 0.2s;
+            margin: 8px;
+        }
+
+        .app-store-btn:hover {
+            background: #333;
+            transform: translateY(-2px);
+            text-decoration: none;
+            color: white;
+        }
+
+        .app-store-btn .btn-subtitle {
+            font-size: 11px;
+            font-weight: 400;
+            display: block;
+            opacity: 0.8;
+        }
+
+        .app-store-btn .btn-title {
+            font-size: 18px;
+            display: block;
+        }
+
+        /* Features Section */
+        .features {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            padding: 40px;
+            margin-bottom: 24px;
+        }
+
+        .features h2 {
+            color: #667eea;
+            font-size: 28px;
+            margin-bottom: 24px;
+            text-align: center;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+            background: #f0f4ff;
+            border-radius: 12px;
+        }
+
+        .feature-item .icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .feature-item h3 {
+            color: #764ba2;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .feature-item p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Joke of the day teaser */
+        .joke-teaser {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            padding: 40px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .joke-teaser h2 {
+            color: #667eea;
+            font-size: 24px;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .joke-card {
+            background: #f0f4ff;
+            border-radius: 12px;
+            padding: 24px;
+            border-left: 4px solid #667eea;
+            font-size: 18px;
+            color: #444;
+            font-style: italic;
+            margin-bottom: 12px;
+        }
+
+        .joke-card .punchline {
+            color: #764ba2;
+            font-weight: 600;
+            margin-top: 12px;
+            font-style: normal;
+        }
+
+        .joke-teaser .cta {
+            color: #667eea;
+            font-size: 14px;
+            margin-top: 12px;
+        }
+
+        /* Footer */
+        .footer {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            padding: 30px 40px;
+            text-align: center;
+        }
+
+        .footer p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 12px;
+            font-size: 14px;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer .developer {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #eee;
+            color: #999;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .hero {
+                padding: 40px 24px;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .features, .joke-teaser, .footer {
+                padding: 30px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Hero -->
+        <div class="hero">
+            <span class="app-icon">😄</span>
+            <h1>Daily Groaner</h1>
+            <p class="tagline">A joke a day keeps the frowns away!</p>
+            <p class="description">
+                Your daily dose of wholesome dad jokes. One fresh groan-worthy joke every day, 
+                plus a community of fellow joke enthusiasts to vote and share with.
+            </p>
+            <a href="https://apps.apple.com/app/daily-groaner/id6758391069" class="app-store-btn" target="_blank">
+                <span class="btn-subtitle">Download on the</span>
+                <span class="btn-title">🍎 App Store</span>
+            </a>
+        </div>
+
+        <!-- Features -->
+        <div class="features">
+            <h2>What's Inside</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <span class="icon">📅</span>
+                    <h3>Daily Joke</h3>
+                    <p>One unique dad joke every single day, all year long</p>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">❤️</span>
+                    <h3>Favorites</h3>
+                    <p>Save the jokes that made you groan the loudest</p>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">👥</span>
+                    <h3>Community</h3>
+                    <p>Vote on jokes and see what the community loves most</p>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">📊</span>
+                    <h3>Streaks</h3>
+                    <p>Build your daily viewing streak and track your history</p>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">🔔</span>
+                    <h3>Reminders</h3>
+                    <p>Daily notifications so you never miss a joke</p>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">📤</span>
+                    <h3>Sharing</h3>
+                    <p>Spread the groans by sharing jokes with friends and family</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sample Joke -->
+        <div class="joke-teaser">
+            <h2>Today's Flavour</h2>
+            <div class="joke-card">
+                <p>Why don't scientists trust atoms?</p>
+                <p class="punchline">Because they make up everything! 🥁</p>
+            </div>
+            <p class="cta">365 jokes waiting for you in the app →</p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>
+                <a href="https://apps.apple.com/app/daily-groaner/id6758391069" target="_blank">Download on App Store</a>
+                <a href="https://aasmith711.github.io/privacy-policy.html">Privacy Policy</a>
+                <a href="mailto:dailygroaner@gmail.com">Support</a>
+            </p>
+            <p class="developer">
+                © 2026 Aaron Smith · Daily Groaner
+            </p>
+        </div>
+
+    </div>
+</body>
+</html>
